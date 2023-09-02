@@ -81,7 +81,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "task-cli-rust"
+name = "task_cli"
 version = "0.1.0"
 dependencies = [
  "anyhow",

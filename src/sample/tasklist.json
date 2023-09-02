@@ -1,0 +1,14 @@
+{
+    "tasks": [
+        {
+            "name": "Do homework",
+            "desc": "Test description"
+        },
+        {
+            "name": "Do homework 2",
+            "desc": "Test description 2"
+        }
+    ],
+
+    "categories":[]
+}

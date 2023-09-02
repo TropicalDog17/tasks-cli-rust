@@ -6,7 +6,7 @@ impl Cmd{
     pub fn run(opts: Opts) -> Result<Task>
     {
      // Get info from opts
-        Ok(Task::create(opts.name, opts.desc, opts.due))  
+        Ok(Task::create(opts.name, opts.desc, Some(opts.due)))  
     }
 }
 
@@ -16,12 +16,10 @@ mod tests{
 
     #[test]
     fn test_create_task(){
-        
         let name = String::from("Sample task");
         let desc = String::from("Sample description");
-        let due: Option<String> = None;
-        let task = Task::create(name.clone(), desc.clone(), due.clone());
-        let opts = Opts{name, desc, due};
+        let task = Task::create(name.clone(), desc.clone(), Some("".to_string()));
+        let opts = Opts::builder().name(Some(name)).desc(Some(desc)).create().unwrap();
         assert_eq!(Cmd::run(opts).unwrap(), task);
     }
 }
