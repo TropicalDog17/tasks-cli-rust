@@ -9,14 +9,14 @@ pub struct Task{
 
 }
 impl Task{
-    pub fn create(name: String, desc: String, due: Option<String>) -> Self{
-        Self { name, desc, due }
+    pub fn create(name: &str, desc: &str, due: Option<&str>) -> Self{
+        Self { name: name.to_string(), desc: desc.to_string(), due: due.unwrap().to_string().into() }
     }
 }
 #[derive(Debug, Default, Serialize, Deserialize)]
 pub struct TaskList{
-    tasks: Vec<Task>,
-    categories: Vec<String>,
+    pub tasks: Vec<Task>,
+    pub categories: Vec<String>,
 }
 impl TaskList{
    pub fn create(tasks: Vec<Task>, categories: Vec<String>) -> Self{

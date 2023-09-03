@@ -36,7 +36,7 @@ pub enum Cmd{
     Export
 }
 fn main() -> Result {
-    let cli = Cli::parse();
+    let cli = Cli::parse()?;
     dbg!(cli);
     Ok(())
     // run(cli)
