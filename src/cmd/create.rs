@@ -1,21 +1,20 @@
 use super::Opts;
 use crate::result::Result;
 use crate::task::Task;
-pub struct Cmd{}
-impl Cmd{
-    pub fn run(opts: Opts) -> Result<Task>
-    {
-     // Get info from opts
-        Ok(Task::create(&opts.name, &opts.desc, Some(&opts.due)))  
+pub struct Cmd {}
+impl Cmd {
+    pub fn run(opts: Opts) -> Result<Task> {
+        // Load from persistent, then update, return nothing if success
+        Ok(Task::create(&opts.name, &opts.desc, Some(&opts.due)))
     }
 }
 
 #[cfg(test)]
-mod tests{
+mod tests {
     use super::*;
 
     #[test]
-    fn test_create_task(){
+    fn test_create_task() {
         let name = String::from("Sample task");
         let desc = String::from("Sample description");
         let task = Task::create(&name, &desc, Some(""));
